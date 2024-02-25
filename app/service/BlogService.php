@@ -3,9 +3,6 @@
 namespace App\Service;
 
 use App\Models\Blog;
-use App\Models\BlogImage;
-use Illuminate\Support\Facades\Storage;
-// with one to many relation
 class BlogService
 {
     private $imageService;
