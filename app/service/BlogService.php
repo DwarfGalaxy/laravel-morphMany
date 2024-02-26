@@ -11,13 +11,13 @@ class BlogService
         $this->imageService = new ImageService();
     }
     // ==========POST=============
-    public function addService($data)
+    public function addService($request)
     {
         // adding data to db
-        $blog = Blog::create($data);
+        $blog = Blog::create($request);
         // if image exist
-        if (isset($data['image'])) {
-            $this->imageService->addImages($blog, $data['image'], 'blog');
+        if (isset($request['image'])) {
+            $this->imageService->addImages($blog, $request['image'], 'blog');
         }
     }
 
@@ -46,15 +46,15 @@ class BlogService
     }
 
     // ================UPDATE=======================
-    public function updateService($data, $blog)
+    public function updateService($request, $blog)
     {
-        if (!empty($data['image'])) {
-            $this->imageService->updateImages($blog, $data['image'], 'blog', true);
+        if (!empty($request['image'])) {
+            $this->imageService->updateImages($blog, $request['image'], 'blog', true);
         }
         $blog->update([
-            'title' => $data['title'],
-            'slug' => $data['slug'],
-            'description' => $data['description']
+            'title' => $request['title'],
+            'slug' => $request['slug'],
+            'description' => $request['description']
         ]);
     }
 }

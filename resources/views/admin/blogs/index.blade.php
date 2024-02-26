@@ -22,7 +22,7 @@
                 <td>{{$blog->description}}</td>
                 <td>
                     @foreach ($blog->image as $image)
-                        <img src="{{asset('storage/images/blog/'.$image->filename)}}" style="height: 30px" alt="{{$image->filename}}">
+                        <img  src="{{ asset('storage/images/blog/'.$image->filename) }}" style="height: 30px" alt="{{$image->filename}}">
                     @endforeach
                 </td>
                 <td>
